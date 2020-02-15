@@ -17,14 +17,14 @@ export const Owner = styled.header`
 
   a {
     background: transparent;
-    color: #7159c1;
+    color: #24292e;
     text-decoration: none;
     border-radius: 5px;
-    border: 2px solid #7159c1;
+    border: 2px solid #24292e;
     padding: 5px;
   }
   a:hover {
-    background: #7159c1;
+    background: #24292e;
     color: #fff;
     transition: 0.2s background;
   }
@@ -56,6 +56,15 @@ export const IssueList = styled.ul`
   border-top: 1px solid #eee;
   list-style: none;
 
+  #issues-error {
+    background: #eee;
+    color: #333;
+    padding: 10px;
+  }
+  #issues-error p {
+    text-align: center;
+  }
+
   li {
     display: flex;
     padding: 15px 10px;
@@ -84,7 +93,7 @@ export const IssueList = styled.ul`
         text-decoration: none;
         color: #333;
         &:hover {
-          color: #7159c1;
+          color: #24292e;
         }
       }
       span {

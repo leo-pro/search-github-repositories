@@ -13,6 +13,7 @@ class Main extends Component {
     newRepo: '',
     repositories: [],
     loading: false,
+    hasError: null,
   };
 
   componentDidMount() {
@@ -32,31 +33,48 @@ class Main extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ newRepo: e.target.value });
+    this.setState({ newRepo: e.target.value, hasError: null });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
 
-    this.setState({ loading: true });
+    this.setState({ loading: true, hasError: null });
 
-    const { newRepo, repositories } = this.state;
+    try {
+      const { newRepo, repositories } = this.state;
 
-    const response = await api.get(`/repos/${newRepo}`);
+      // Verifica se campo repositorio está vazio
+      if (newRepo === '') throw 'O campo não pode estar vazio';
 
-    const data = {
-      name: response.data.full_name,
-    };
+      // Verificar se o respositorio já foi add
+      const hasRepo = repositories.find(r => r.name === newRepo);
 
-    this.setState({
-      repositories: [...repositories, data],
-      newRepo: '',
-      loading: false,
-    });
+      if (hasRepo) throw 'O repositório já existe';
+
+      const response = await api.get(`/repos/${newRepo}`);
+
+      // Verificar se o repositorio existe
+      if (!response.data) throw 'Informe um repositório válido';
+
+      const data = {
+        name: response.data.full_name,
+      };
+
+      this.setState({
+        repositories: [...repositories, data],
+        newRepo: '',
+        loading: false,
+      });
+    } catch (error) {
+      this.setState({ hasError: true });
+    } finally {
+      this.setState({ loading: false });
+    }
   };
 
   render() {
-    const { newRepo, loading, repositories } = this.state;
+    const { newRepo, loading, repositories, hasError } = this.state;
 
     return (
       <Container>
@@ -65,9 +83,10 @@ class Main extends Component {
           Repositórios
         </h1>
 
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} error={hasError}>
           <input
             type="text"
+            name="repo"
             placeholder="Adicionar Repositório"
             value={newRepo}
             onChange={this.handleInputChange}
@@ -81,6 +100,9 @@ class Main extends Component {
             )}
           </SubmitButton>
         </Form>
+        <span className="help-error">
+          {hasError ? '* Informe um repositório válido' : ''}
+        </span>
         <List>
           {repositories.map(repository => (
             <li key={repository.name}>

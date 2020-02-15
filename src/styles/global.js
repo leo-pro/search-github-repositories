@@ -13,7 +13,7 @@ export default createGlobalStyle`
   }
 
   body{
-    background: #7159c1;
+    background: #24292e;
     -webkit-font-smoothing: antialiased !important;
   }
 
@@ -25,5 +25,11 @@ export default createGlobalStyle`
 
   button{
     cursor: pointer;
+  }
+
+  .help-error{
+    color: red;
+    font-size: 0.9em;
+    font-weight: 600;
   }
 `;
