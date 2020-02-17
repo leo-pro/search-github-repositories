@@ -20,4 +20,4 @@ Next, run the commands below:
 <p><code>yarn</code> : install required dependencies</p>
 <p><code>yarn start</code> : run the project into your browser at http://localhost:3000</p>
 
-<p>🖥️ Demo: <a href="https://searchrepos.herokuapp.com/">Click here</a></p>
+<p>🖥️ Demo: <a href="https://searchrepos.herokuapp.com/" target="_blank">Click here</a></p>
