@@ -6,7 +6,7 @@
       <td><img src="https://avatars0.githubusercontent.com/u/6412038?s=200&v=4" width="100px" height="100px"/></td>
     </th>
     <th>
-      <td><img src="https://developer.github.com/assets/images/github-developer-logo.svg" width="200px" height="80px"/></td>
+      <td style="background: #333"><img src="https://developer.github.com/assets/images/github-developer-logo.svg" width="200px" height="80px"/></td>
     </th>
   </thead>
 <table>
