@@ -114,3 +114,37 @@ export const IssueList = styled.ul`
     }
   }
 `;
+
+export const PrevList = styled.button.attrs({
+  type: 'button',
+})`
+  background: transparent;
+  color: #24292e;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #24292e;
+  padding: 5px;
+
+  &:hover {
+    background: #24292e;
+    color: #fff;
+    transition: 0.2s background;
+  }
+`;
+
+export const NextList = styled.button.attrs({
+  type: 'button',
+})`
+  background: transparent;
+  color: #24292e;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #24292e;
+  padding: 10px;
+
+  &:hover {
+    background: #24292e;
+    color: #fff;
+    transition: 0.2s background;
+  }
+`;

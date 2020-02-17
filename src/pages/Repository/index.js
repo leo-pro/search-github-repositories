@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { Loading, Owner, IssueList } from './styles';
+import { Loading, Owner, IssueList, PrevList, NextList } from './styles';
 
 export default class Repository extends Component {
   // static propTypes = {
@@ -84,6 +84,8 @@ export default class Repository extends Component {
             </li>
           ))}
         </IssueList>
+        <PrevList>Anterior</PrevList>
+        <NextList>Próximo</NextList>
       </Container>
     );
   }
