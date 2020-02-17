@@ -115,45 +115,57 @@ export const IssueList = styled.ul`
   }
 `;
 
-export const Pagination = styled.div`
+export const IssueFilter = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-export const PrevList = styled.button.attrs({
-  type: 'button',
-})`
-  background: transparent;
-  color: #24292e;
-  text-decoration: none;
-  border-radius: 5px;
-  border: 2px solid #24292e;
-  padding: 5px 35px;
-  margin: 1%;
-
-  &:hover {
-    background: #24292e;
-    color: #fff;
-    transition: 0.2s background;
+  padding-bottom: 15px;
+  button {
+    border-radius: 4px;
+    outline: 0;
+    border: 0;
+    padding: 8px;
+    margin: 0 0.25rem;
+    &:nth-child(${props => props.active + 1}) {
+      background: #24292e;
+      color: white;
+    }
   }
 `;
 
-export const NextList = styled.button.attrs({
-  type: 'button',
-})`
-  background: transparent;
-  color: #24292e;
-  text-decoration: none;
-  border-radius: 5px;
-  border: 2px solid #24292e;
-  padding: 5px 35px;
-  margin: 1%;
+export const Pagination = styled.div`
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
 
-  &:hover {
+  span {
     background: #24292e;
     color: #fff;
-    transition: 0.2s background;
+    padding: 5px 15px;
+    border: 2px solid #24292e;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+
+  button {
+    transition: opacity 0.25s ease-out;
+    background: transparent;
+    color: #24292e;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #24292e;
+    padding: 5px 15px;
+    margin: 1%;
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    &:hover {
+      background: #24292e;
+      color: #fff;
+      transition: 0.2s background;
+    }
   }
 `;
