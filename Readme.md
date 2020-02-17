@@ -11,18 +11,18 @@
 <p>Steps to run application into your computer:</p>
 
 <h3>Clone project</h3>
-<p>Clone the repository into your local machine.<p><br/>
+<p>Clone the repository into your local machine.<p>
 
-<code>git clone https://github.com/leo-pro/search-github-repositories</code><br/>
+<code>git clone https://github.com/leo-pro/search-github-repositories</code>
 
-<p>Next, run the commands below:</p><br/>
+<p>Next, run the commands below:</p>
 
-<code>yarn</code><br/>
+<p><code>yarn</code></p>
 
-<p>install required dependencies</p><br/>
+<p>install required dependencies</p>
 
-<code>yarn start</code><br/>
+<p><code>yarn start</code></p>
 
-<p>Run the project into your browser at http://localhost:3000</p><br/>
+<p>Run the project into your browser at http://localhost:3000</p>
 
 <p>🖥️ Demo: <a href="https://searchrepos.herokuapp.com/" target="_blank">Click here</a></p>
