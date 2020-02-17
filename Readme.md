@@ -19,7 +19,7 @@
 
 <p><code>yarn</code></p>
 
-<p>install required dependencies</p>
+<p>Install required dependencies</p>
 
 <p><code>yarn start</code></p>
 

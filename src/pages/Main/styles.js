@@ -39,6 +39,7 @@ export const SubmitButton = styled.button.attrs(props => ({
   padding: 0 15px;
   margin-left: 10px;
   border-radius: 4px;
+  color: #fff;
 
   display: flex;
   justify-content: center;

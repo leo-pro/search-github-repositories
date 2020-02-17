@@ -25,9 +25,9 @@ export default class Repository extends Component {
     issues: [],
     loading: true,
     filters: [
-      { state: 'all', label: 'Todas', active: true },
-      { state: 'open', label: 'Abertas', active: false },
-      { state: 'closed', label: 'Fechadas', active: false },
+      { state: 'all', label: 'All', active: true },
+      { state: 'open', label: 'Open', active: false },
+      { state: 'closed', label: 'Closed', active: false },
     ],
     filterIndex: 0,
     page: 1,
@@ -105,7 +105,7 @@ export default class Repository extends Component {
     } = this.state;
 
     if (loading) {
-      return <Loading>Carregando</Loading>;
+      return <Loading>Loading...</Loading>;
     }
 
     return (
@@ -160,15 +160,15 @@ export default class Repository extends Component {
               disabled={page < 2}
               onClick={() => this.handlePage('back')}
             >
-              ❮ Anterior
+              ❮ Previous
             </button>
-            <span>Página {page}</span>
+            <span>Page {page}</span>
             <button
               type="button"
               disabled={page >= numberOfPages}
               onClick={() => this.handlePage('next')}
             >
-              Próximo ❯
+              Next ❯
             </button>
           </Pagination>
         </Container>

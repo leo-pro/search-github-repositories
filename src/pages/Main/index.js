@@ -46,17 +46,17 @@ class Main extends Component {
       const { newRepo, repositories } = this.state;
 
       // Verifica se campo repositorio está vazio
-      if (newRepo === '') throw 'O campo não pode estar vazio';
+      if (newRepo === '') throw 'The field cannot be empty';
 
       // Verificar se o respositorio já foi add
       const hasRepo = repositories.find(r => r.name === newRepo);
 
-      if (hasRepo) throw 'O repositório já existe';
+      if (hasRepo) throw 'Repository already exists';
 
       const response = await api.get(`/repos/${newRepo}`);
 
       // Verificar se o repositorio existe
-      if (!response.data) throw 'Informe um repositório válido';
+      if (!response.data) throw 'Please, insert a valid repository';
 
       const data = {
         name: response.data.full_name,
@@ -81,15 +81,15 @@ class Main extends Component {
       <>
         <Container>
           <h1>
-            <FaGithubAlt />
-            Repositórios
+            <FaGithubAlt size={22} />
+            Github Repositories
           </h1>
 
           <Form onSubmit={this.handleSubmit} error={hasError}>
             <input
               type="text"
               name="repo"
-              placeholder="Adicionar Repositório"
+              placeholder="organization/repository-name"
               value={newRepo}
               onChange={this.handleInputChange}
             />
@@ -98,19 +98,21 @@ class Main extends Component {
               {loading ? (
                 <FaSpinner color="#fff" size={14} />
               ) : (
-                <FaPlus color="#fff" size={14} />
+                <>
+                  <FaPlus color="#fff" size={14} /> Add
+                </>
               )}
             </SubmitButton>
           </Form>
           <span className="help-error">
-            {hasError ? '* Informe um repositório válido' : ''}
+            {hasError ? '* Invalid repository!' : ''}
           </span>
           <List>
             {repositories.map(repository => (
               <li key={repository.name}>
                 <span>{repository.name}</span>
                 <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-                  Detalhes
+                  Details
                 </Link>
               </li>
             ))}
