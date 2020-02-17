@@ -5,8 +5,17 @@ import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import api from '../../services/api';
 
+import Footer from '../../components/Footer';
+
 import Container from '../../components/Container';
-import { Loading, Owner, IssueList, PrevList, NextList } from './styles';
+import {
+  Loading,
+  Owner,
+  IssueList,
+  Pagination,
+  PrevList,
+  NextList,
+} from './styles';
 
 export default class Repository extends Component {
   // static propTypes = {
@@ -54,39 +63,47 @@ export default class Repository extends Component {
       return <Loading>Carregando</Loading>;
     }
     return (
-      <Container>
-        <Owner>
-          <Link to="/">❮ Voltar aos repositórios</Link>
-          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
-          <h1>{repository.name}</h1>
-          <p>{repository.description}</p>
-        </Owner>
+      <>
+        <Container>
+          <Owner>
+            <Link to="/">❮ Voltar aos repositórios</Link>
+            <img
+              src={repository.owner.avatar_url}
+              alt={repository.owner.login}
+            />
+            <h1>{repository.name}</h1>
+            <p>{repository.description}</p>
+          </Owner>
 
-        <IssueList>
-          {issues.map(issue => (
-            <li key={String(issue.id)}>
-              <img src={issue.user.avatar_url} alt="" />
-              <div>
-                <strong>
-                  <a
-                    href={issue.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {issue.title}
-                  </a>
-                  {issue.labels.map(label => (
-                    <span key={String(label.id)}>{label.name}</span>
-                  ))}
-                </strong>
-                <p>{issue.user.login}</p>
-              </div>
-            </li>
-          ))}
-        </IssueList>
-        <PrevList>Anterior</PrevList>
-        <NextList>Próximo</NextList>
-      </Container>
+          <IssueList>
+            {issues.map(issue => (
+              <li key={String(issue.id)}>
+                <img src={issue.user.avatar_url} alt="" />
+                <div>
+                  <strong>
+                    <a
+                      href={issue.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {issue.title}
+                    </a>
+                    {issue.labels.map(label => (
+                      <span key={String(label.id)}>{label.name}</span>
+                    ))}
+                  </strong>
+                  <p>{issue.user.login}</p>
+                </div>
+              </li>
+            ))}
+          </IssueList>
+          <Pagination>
+            <PrevList>❮ Anterior</PrevList>
+            <NextList>Próximo ❯</NextList>
+          </Pagination>
+        </Container>
+        <Footer />
+      </>
     );
   }
 }

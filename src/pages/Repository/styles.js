@@ -115,6 +115,13 @@ export const IssueList = styled.ul`
   }
 `;
 
+export const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
+
 export const PrevList = styled.button.attrs({
   type: 'button',
 })`
@@ -123,7 +130,8 @@ export const PrevList = styled.button.attrs({
   text-decoration: none;
   border-radius: 5px;
   border: 2px solid #24292e;
-  padding: 5px;
+  padding: 5px 35px;
+  margin: 1%;
 
   &:hover {
     background: #24292e;
@@ -140,7 +148,8 @@ export const NextList = styled.button.attrs({
   text-decoration: none;
   border-radius: 5px;
   border: 2px solid #24292e;
-  padding: 10px;
+  padding: 5px 35px;
+  margin: 1%;
 
   &:hover {
     background: #24292e;

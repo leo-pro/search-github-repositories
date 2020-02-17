@@ -5,6 +5,7 @@ import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
+import Footer from '../../components/Footer';
 import { Form, SubmitButton, List } from './styles';
 
 class Main extends Component {
@@ -77,43 +78,46 @@ class Main extends Component {
     const { newRepo, loading, repositories, hasError } = this.state;
 
     return (
-      <Container>
-        <h1>
-          <FaGithubAlt />
-          Repositórios
-        </h1>
+      <>
+        <Container>
+          <h1>
+            <FaGithubAlt />
+            Repositórios
+          </h1>
 
-        <Form onSubmit={this.handleSubmit} error={hasError}>
-          <input
-            type="text"
-            name="repo"
-            placeholder="Adicionar Repositório"
-            value={newRepo}
-            onChange={this.handleInputChange}
-          />
+          <Form onSubmit={this.handleSubmit} error={hasError}>
+            <input
+              type="text"
+              name="repo"
+              placeholder="Adicionar Repositório"
+              value={newRepo}
+              onChange={this.handleInputChange}
+            />
 
-          <SubmitButton loading={loading}>
-            {loading ? (
-              <FaSpinner color="#fff" size={14} />
-            ) : (
-              <FaPlus color="#fff" size={14} />
-            )}
-          </SubmitButton>
-        </Form>
-        <span className="help-error">
-          {hasError ? '* Informe um repositório válido' : ''}
-        </span>
-        <List>
-          {repositories.map(repository => (
-            <li key={repository.name}>
-              <span>{repository.name}</span>
-              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-                Detalhes
-              </Link>
-            </li>
-          ))}
-        </List>
-      </Container>
+            <SubmitButton loading={loading}>
+              {loading ? (
+                <FaSpinner color="#fff" size={14} />
+              ) : (
+                <FaPlus color="#fff" size={14} />
+              )}
+            </SubmitButton>
+          </Form>
+          <span className="help-error">
+            {hasError ? '* Informe um repositório válido' : ''}
+          </span>
+          <List>
+            {repositories.map(repository => (
+              <li key={repository.name}>
+                <span>{repository.name}</span>
+                <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
+                  Detalhes
+                </Link>
+              </li>
+            ))}
+          </List>
+        </Container>
+        <Footer />
+      </>
     );
   }
 }
