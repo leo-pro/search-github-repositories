@@ -16,7 +16,7 @@ To install and run the application:
   cd search-github-repositories
   yarn
 ```
-* Run the project into your browser at http://localhost:3000
+* Running the project into your browser at http://localhost:3000
 ```
   yarn start
 ```
