@@ -8,7 +8,7 @@
 <img src="https://devleo.com.br/assets/images/mockups/mockup-web-searchrepo.png" width="400px" height="auto">
 
 ## Install and Run
-To install and run the app:
+To install and run the application:
 
 * Clone repository and install dependencies: 
 ```
